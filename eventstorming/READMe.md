@@ -16,6 +16,9 @@ country and potentially launch it across the globe.
 
 ## Domain object Model & Entity Map
 
+![Map 1](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/7ea2eed3-242f-42e0-bff2-c2788904d77e)
+
+
 ## System Specifications : MTTR , MTBF , System Availability
 To derive the MTTR and MTBF , a few base assumptions have to be made. 
 Making that base assumption to be around Availability parameter and the average Time to Production 
