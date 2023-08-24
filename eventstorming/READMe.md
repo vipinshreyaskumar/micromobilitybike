@@ -50,8 +50,7 @@ Storage assumptions could be made on the size of the rows and scale assumptions 
 
 #### Storage Specs
 
-User Domain : Major repository to store the user profile
-Certainly! Here's the table that outlines the estimated size for each column in the User table, along with the context and the maximum row size:
+**User Domain** : Major repository to store the user profile
 
 | Table Name | Context                                                         | Column Elements         | Size Specifications (bytes) | Max Row Size (bytes) |
 |------------|-----------------------------------------------------------------|-------------------------|----------------------------|----------------------|
@@ -60,9 +59,9 @@ Certainly! Here's the table that outlines the estimated size for each column in 
 |            |                                                                 | user email (string)     | 100                        |                      |
 |            |                                                                 | user preference (string)| 20                         |                      |
 |            |                                                                 | user emergency contact  | 4                          |                      |
-|            |                                                                 | user_active (1 or 0)    | 1                          | 197                  |
+|            |                                                                 | user_active (1 or 0)    | 1                          | **197**                  |
 
-### Explanation:
+###### Explanation:
 
 1. **username (string)**: Estimated to be 50 bytes.
 2. **user id (Base64)**: Estimated to be 22 bytes.
@@ -75,20 +74,56 @@ The maximum row size is calculated as the sum of all these sizes: \(50 + 22 + 10
 
 
 
-BikeZone Domain : Major repository to store the inventory list 
+**BikeZone Domain** : Major repository to store the inventory list 
 
-Trip Domain : Major repository to store the audit logs for the entire trip
+| Table Name | Context                                                         | Column Elements         | Size Specifications (bytes) | Max Row Size (bytes) |
+|------------|-----------------------------------------------------------------|-------------------------|----------------------------|----------------------|
+| BikeZone   | Stores all the information of the bike zones that are registered, with information of location, availability, max capacity | zonename (string)       | 50                         |                      |
+|            |                                                                 | zoneid (Base64)         | 22                         |                      |
+|            |                                                                 | zone latlong (decimal)  | 16                         |                      |
+|            |                                                                 | zonegeohash (alpha numeric string) | 12              |                      |
+|            |                                                                 | zone_bike_available (integer) | 4                    |                      |
+|            |                                                                 | zone_bike_capacity (integer) | 4                     | 108                  |
+
+###### Explanation:
+
+1. **zonename (string)**: Estimated to be 50 bytes.
+2. **zoneid (Base64)**: Estimated to be 22 bytes.
+3. **zone latlong (decimal)**: Estimated to be 16 bytes (8 bytes for latitude and 8 bytes for longitude).
+4. **zonegeohash (alpha numeric string)**: Estimated to be 12 bytes.
+5. **zone_bike_available (integer)**: Estimated to be 4 bytes.
+6. **zone_bike_capacity (integer)**: Estimated to be 4 bytes.
+
+The maximum row size is calculated as the sum of all these sizes: \(50 + 22 + 16 + 12 + 4 + 4 = 108\) bytes.
 
 
-Schedule Domain : Major repository to store the fulfilment details for the trip 
+| Table Name  | Context                                                                 | Column Elements  | Size Specifications (bytes) | Max Row Size (bytes) |
+|-------------|--------------------------------------------------------------------------|------------------|-----------------------------|----------------------|
+| BikeCatalogue| Stores all the information of the bikes that belong to zones and their types | zoneid (Base64)  | 22                          |                      |
+|             |                                                                          | bikeid (Base64)  | 22                          |                      |
+|             |                                                                          | biketype (string)| 20                          | 64                   |
 
-Payment Domain : Major repository to store the payment audit logs
+### Explanation:
 
-Ratings Domain : Major repository to store the 
+1. **zoneid (Base64)**: Estimated to be 22 bytes.
+2. **bikeid (Base64)**: Estimated to be 22 bytes.
+3. **biketype (string)**: Estimated to be 20 bytes.
 
-App Insights
+The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 20 = 64\) bytes.
 
-Log Insights
+
+**Trip Domain** : Major repository to store the audit logs for the entire trip
+
+
+**Schedule Domain** : Major repository to store the fulfilment details for the trip 
+
+**Payment Domain** : Major repository to store the payment audit logs
+
+**Ratings Domain** : Major repository to store the 
+
+**App Insights**
+
+**Log Insights**
 
 
 
