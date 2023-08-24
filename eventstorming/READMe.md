@@ -236,13 +236,20 @@ The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 22
 Specified in the domain diagram with icons for cold : Consistency and hot : Availability
 
 ## Guiding Principles
-Domain Driven Design
-Clean Architecture
-Atomic Workflows
+- Domain Driven Design
+- Clean Architecture
+- Atomic Workflows
 
 ## Platform Composition
 
 ![platform-composition](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/2a1e005a-5982-41f2-9547-f9728c824713)
 
-## Workflow 
+## Unit Workflow View
+![unit-workflow](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/3584a735-3cb4-48e4-bc69-82c5df6d6b27)
+
+## Unit Workflow Example
+
+## Unit Workflow Implementation Example
+
+
 
