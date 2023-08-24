@@ -174,11 +174,58 @@ The maximum row size is calculated as the sum of all these sizes: \(22 + 1 + 8 +
 
 **Payment Domain** : Major repository to store the payment audit logs
 
-**Ratings Domain** : Major repository to store the 
 
-**App Insights**
+| Table Name   | Context                                                                                     | Column Elements          | Size Specifications (bytes) | Max Row Size (bytes) |
+|--------------|---------------------------------------------------------------------------------------------|--------------------------|-----------------------------|----------------------|
+| TripBilling  | Stores all the information of the trip, when it ended, distance and hour tariff, total distance and total time, bill id and bill generation time | tripid (Base64)         | 22                          |                      |
+|              |                                                                                             | user_id (Base64)         | 22                          |                      |
+|              |                                                                                             | bill_id (Base64)         | 22                          |                      |
+|              |                                                                                             | hourly_metering (int)    | 4                           |                      |
+|              |                                                                                             | distance_metering (int)  | 4                           |                      |
+|              |                                                                                             | bill_generation_timestamp (timestamp) | 8              |                      |
+|              |                                                                                             | hour_tariff (int)        | 4                           |                      |
+|              |                                                                                             | distance_tariff (int)    | 4                           |                      |
+|              |                                                                                             | total_amount (int)       | 4                           | 94                   |
 
-**Log Insights**
+### Explanation:
+
+1. **tripid (Base64)**: Estimated to be 22 bytes.
+2. **user_id (Base64)**: Estimated to be 22 bytes.
+3. **bill_id (Base64)**: Estimated to be 22 bytes.
+4. **hourly_metering (int)**: Estimated to be 4 bytes.
+5. **distance_metering (int)**: Estimated to be 4 bytes.
+6. **bill_generation_timestamp (timestamp)**: Estimated to be 8 bytes.
+7. **hour_tariff (int)**: Estimated to be 4 bytes.
+8. **distance_tariff (int)**: Estimated to be 4 bytes.
+9. **total_amount (int)**: Estimated to be 4 bytes.
+
+The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 22 + 4 + 4 + 8 + 4 + 4 + 4 = 94\) bytes.
+
+
+| Table Name    | Context                                                                                     | Column Elements          | Size Specifications (bytes) | Max Row Size (bytes) |
+|---------------|---------------------------------------------------------------------------------------------|--------------------------|-----------------------------|----------------------|
+| BillFulfilment| Stores all the information of the bill, trip id, user id, bill payment time and bill payment status | tripid (Base64)         | 22                          |                      |
+|               |                                                                                             | user_id (Base64)         | 22                          |                      |
+|               |                                                                                             | bill_id (Base64)         | 22                          |                      |
+|               |                                                                                             | payment_status (0 or 1)  | 1                           |                      |
+|               |                                                                                             | payment_timestamp (timestamp) | 8                     | 75                   |
+
+### Explanation:
+
+1. **tripid (Base64)**: Estimated to be 22 bytes.
+2. **user_id (Base64)**: Estimated to be 22 bytes.
+3. **bill_id (Base64)**: Estimated to be 22 bytes.
+4. **payment_status (0 or 1)**: Estimated to be 1 byte.
+5. **payment_timestamp (timestamp)**: Estimated to be 8 bytes.
+
+The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 22 + 1 + 8 = 75\) bytes.
+
+
+**Ratings Domain** : Major repository to store the user rating of the trip
+
+**App Insights** : TBD
+
+**Log Insights** : TBD
 
 
 
