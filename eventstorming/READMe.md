@@ -255,5 +255,7 @@ Specified in the domain diagram with icons for cold : Consistency and hot : Avai
 ![user-reg-temporal](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/bc789d1c-03ec-41be-b55b-4fc391bf1bd6)
 
 
+## Deployment View
+![deployment-view-k8s](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/5c456d5f-df2d-4797-9b45-01ae8c879c85)
 
 
