@@ -233,7 +233,16 @@ The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 22
 
 
 ## Consistency & Availability Specifications
+Specified in the domain diagram with icons for cold : Consistency and hot : Availability
 
-## Clean Architecture DOMA
+## Guiding Principles
+Domain Driven Design
+Clean Architecture
+Atomic Workflows
+
+## Platform Composition
+
+![platform-composition](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/2a1e005a-5982-41f2-9547-f9728c824713)
+
 ## Workflow 
 
