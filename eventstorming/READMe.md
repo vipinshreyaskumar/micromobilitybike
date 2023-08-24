@@ -248,6 +248,8 @@ Specified in the domain diagram with icons for cold : Consistency and hot : Avai
 ![unit-workflow](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/3584a735-3cb4-48e4-bc69-82c5df6d6b27)
 
 ## Unit Workflow Example
+![user-reg-impl](https://github.com/vipinshreyaskumar/micromobilitybike/assets/17126168/b7b612ec-b5df-45f8-a0b5-98607fd8e12d)
+
 
 ## Unit Workflow Implementation Example
 
