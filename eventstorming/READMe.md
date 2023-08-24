@@ -103,7 +103,7 @@ The maximum row size is calculated as the sum of all these sizes: \(50 + 22 + 16
 |             |                                                                          | bikeid (Base64)  | 22                          |                      |
 |             |                                                                          | biketype (string)| 20                          | 64                   |
 
-### Explanation:
+###### Explanation:
 
 1. **zoneid (Base64)**: Estimated to be 22 bytes.
 2. **bikeid (Base64)**: Estimated to be 22 bytes.
@@ -112,10 +112,65 @@ The maximum row size is calculated as the sum of all these sizes: \(50 + 22 + 16
 The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 20 = 64\) bytes.
 
 
+
+| Table Name    | Context                                                                                     | Column Elements    | Size Specifications (bytes) | Max Row Size (bytes) |
+|---------------|---------------------------------------------------------------------------------------------|--------------------|-----------------------------|----------------------|
+| ZoneBikeStatus| Stores all the information of the availability of the bikes that belong to zones and their types | zoneid (Base64)    | 22                          |                      |
+|               |                                                                                             | bikeid (Base64)    | 22                          |                      |
+|               |                                                                                             | biketype (string)  | 20                          |                      |
+|               |                                                                                             | bikeavailability (0 or 1) | 1                   | 65                   |
+
+###### Explanation:
+
+1. **zoneid (Base64)**: Estimated to be 22 bytes.
+2. **bikeid (Base64)**: Estimated to be 22 bytes.
+3. **biketype (string)**: Estimated to be 20 bytes.
+4. **bikeavailability (0 or 1)**: Estimated to be 1 byte.
+
+The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 20 + 1 = 65\) bytes.
+
+
 **Trip Domain** : Major repository to store the audit logs for the entire trip
 
 
+| Table Name       | Context                                                                                     | Column Elements         | Size Specifications (bytes) | Max Row Size (bytes) |
+|------------------|---------------------------------------------------------------------------------------------|-------------------------|-----------------------------|----------------------|
+| UserBikeTripStatus| Stores all the information of the trip that the user does on a bike and stores the real-time location of the trip | userid (Base64)         | 22                          |                      |
+|                  |                                                                                             | bikeid (Base64)         | 22                          |                      |
+|                  |                                                                                             | tripid (Base64)         | 22                          |                      |
+|                  |                                                                                             | trip_current_location (lat long decimal) | 16        |                      |
+|                  |                                                                                             | timestamp (timestamp)   | 8                           | 90                   |
+
+###### Explanation:
+
+1. **userid (Base64)**: Estimated to be 22 bytes.
+2. **bikeid (Base64)**: Estimated to be 22 bytes.
+3. **tripid (Base64)**: Estimated to be 22 bytes.
+4. **trip_current_location (lat long decimal)**: Estimated to be 16 bytes (8 bytes for latitude and 8 bytes for longitude).
+5. **timestamp (timestamp)**: Estimated to be 8 bytes.
+
+The maximum row size is calculated as the sum of all these sizes: \(22 + 22 + 22 + 16 + 8 = 90\) bytes.
+
+
+
 **Schedule Domain** : Major repository to store the fulfilment details for the trip 
+
+
+| Table Name   | Context                                                                                     | Column Elements          | Size Specifications (bytes) | Max Row Size (bytes) |
+|--------------|---------------------------------------------------------------------------------------------|--------------------------|-----------------------------|----------------------|
+| TripStatus   | Stores all the information of the trip, when it started, when did it end and what is the current status | tripid (Base64)         | 22                          |                      |
+|              |                                                                                             | trip_status (0 or 1)     | 1                           |                      |
+|              |                                                                                             | trip_start_timestamp (timestamp) | 8                  |                      |
+|              |                                                                                             | trip_end_timestamp (timestamp)   | 8                   | 39                   |
+
+###### Explanation:
+
+1. **tripid (Base64)**: Estimated to be 22 bytes.
+2. **trip_status (0 or 1)**: Estimated to be 1 byte.
+3. **trip_start_timestamp (timestamp)**: Estimated to be 8 bytes.
+4. **trip_end_timestamp (timestamp)**: Estimated to be 8 bytes.
+
+The maximum row size is calculated as the sum of all these sizes: \(22 + 1 + 8 + 8 = 39\) bytes.
 
 **Payment Domain** : Major repository to store the payment audit logs
 
